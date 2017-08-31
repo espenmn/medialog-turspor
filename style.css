@@ -4273,10 +4273,9 @@ object {
 /* Turspor */
 
 
-
+.forside-turinfo,
 div.turinfo {
 	display: flex;
-	xflex-direction: row;
 	line-height: 2em;
 	margin-bottom: 2em;
 	border-bottom: 1px solid silver;
