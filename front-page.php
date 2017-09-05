@@ -15,6 +15,7 @@
 get_header(); ?>
 
 <div id="primary" class="content-area">
+	<iframe width="100%" height="900vw" src="https://www.youtube.com/embed/pfoUHOUjsIg?autoplay=1&modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
 	<main id="main" class="site-main" role="main">
 
 		<?php // Show the selected frontpage content.
@@ -51,7 +52,7 @@ get_header(); ?>
     <div id="forsideturer">
         <?php echo do_shortcode('[pods name="tur" limit="40" template="Forsideturtemplate"]'); ?>
     </div>
-    
+
 	</main><!-- #main -->
 </div><!-- #primary -->
 

@@ -1,7 +1,5 @@
 /* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
 
-/* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
-
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -1538,7 +1536,7 @@ body {
 }
 
 .site-header {
-	background-color: black;
+	background-color: #fafafa;
 	position: relative;
 }
 
@@ -1632,7 +1630,6 @@ body:not(.title-tagline-hidden) .site-branding-text {
 
 .custom-header {
 	position: relative;
-	height: 50vw !important;
 }
 
 .has-header-image.medialog_turspor-front-page .custom-header,
@@ -1646,12 +1643,12 @@ body:not(.title-tagline-hidden) .site-branding-text {
 }
 
 .custom-header-media {
-	xbottom: 0;
+	bottom: 0;
 	left: 0;
 	overflow: hidden;
-	position: relative; /* absolute; */
+	position: absolute;
 	right: 0;
-	xtop: 0;
+	top: 0;
 	width: 100%;
 }
 
@@ -1678,25 +1675,16 @@ body:not(.title-tagline-hidden) .site-branding-text {
 	height: auto;
 	left: 50%;
 	max-width: 1000%;
+	min-height: 100%;
 	min-width: 100%;
 	min-width: 100vw; /* vw prevents 1px gap on left that 100% has */
 	width: auto;
+	top: 50%;
 	padding-bottom: 1px; /* Prevent header from extending beyond the footer */
 	-ms-transform: translateX(-50%) translateY(-50%);
 	-moz-transform: translateX(-50%) translateY(-50%);
 	-webkit-transform: translateX(-50%) translateY(-50%);
 	transform: translateX(-50%) translateY(-50%);
-}
-
- 
-iframe {
-    height: 56.2vw;
-    padding: 0;
-}
-
-.wp-custom-header {
-	background: black !important;
-	width: 100% !important; 
 }
 
 .wp-custom-header .wp-custom-header-video-button { /* Specificity prevents .color-dark button overrides */

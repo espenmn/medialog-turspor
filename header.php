@@ -36,9 +36,17 @@
 			</div><!-- .navigation-top -->
 		<?php endif; ?>
 
-	<!--?php get_template_part( 'template-parts/header/header', 'image' ); ?-->
 
 	</header><!-- #masthead -->
+
+	<!--?php
+	if ( medialog_turspor_is_frontpage() ) :
+		echo '<iframe width="100%" height="700vw" src="https://www.youtube.com/embed/pfoUHOUjsIg?autoplay=1" frameborder="0" allowfullscreen></iframe>';
+	endif;
+	?-->
+
+	<!--?php get_template_part( 'template-parts/header/header', 'image' ); ?-->
+
 
 	<?php
 
