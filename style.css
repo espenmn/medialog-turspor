@@ -2,6 +2,10 @@
 
 /* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
 
+/* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
+
+/* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
+
 
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
@@ -1300,29 +1304,60 @@ a:hover .nav-title,
 --------------------------------------------------------------*/
 
 .navigation-top {
-	background: #fff;
+ 
 	border-bottom: 1px solid #eee;
 	border-top: 1px solid #eee;
 	font-size: 16px;
 	font-size: 1rem;
 	position: relative;
+	background: white;
 }
+
+nav#site-navigation.main-navigation.toggled-on ul#top-menu.menu {
+	clear: both;
+}
+
+ 
+
 
 .navigation-top .wrap {
 	max-width: 1000px;
 	padding: 0;
 }
 
+#site-navigation a.custom-logo-link {
+	float:  left;
+	padding:  0;
+}
+
+#site-navigation a.custom-logo-link:hover {
+	background:  none;
+	opacity: 0.8;
+}
 .navigation-top a {
 	color: #222;
 	font-weight: 600;
 	-webkit-transition: color 0.2s;
 	transition: color 0.2s;
+
 }
 
 .navigation-top .current-menu-item > a,
 .navigation-top .current_page_item > a {
-	color: #767676;
+	color: #9f3138;
+	background: #9f3138;
+	color: white;
+	border-radius: 5px;
+}
+
+nav#site-navigation.main-navigation.toggled-on a {
+	text-align: center;
+}
+
+nav#site-navigation.main-navigation.toggled-on .current-menu-item > a,
+nav#site-navigation.main-navigation.toggled-on .current_page_item > a {
+background: white;
+color: #9e3038;
 }
 
 .main-navigation {
@@ -1335,7 +1370,7 @@ a:hover .nav-title,
 	list-style: none;
 	margin: 0;
 	padding: 0 1.5em;
-	text-align: left;
+	text-align: right;
 }
 
 /* Hide the menu on small screens when JavaScript is available.
@@ -1387,10 +1422,12 @@ a:hover .nav-title,
 	display: block;
 	padding: 0.5em 0;
 	text-decoration: none;
+	
 }
 
 .main-navigation a:hover {
-	color: #767676;
+	background: #CCC;
+	border-radius: 5px;
 }
 
 /* Menu toggle */
@@ -1402,13 +1439,13 @@ a:hover .nav-title,
 	box-shadow: none;
 	color: #222;
 	display: none;
-	font-size: 14px;
-	font-size: 0.875rem;
+	font-size: 24px;
 	font-weight: 800;
 	line-height: 1.5;
-	margin: 1px auto 2px;
-	padding: 1em;
+	margin: 1px 0 2px;
+	padding: 0.6em 1em 0;
 	text-shadow: none;
+	float: right; 
 }
 
 /* Display the menu toggle when JavaScript is available. */
@@ -1538,8 +1575,8 @@ body {
 }
 
 .site-header {
-	background-color: black;
 	position: relative;
+	text-align: center;
 }
 
 /* Site branding */
@@ -1606,12 +1643,15 @@ body.has-header-video .site-description {
 	padding-right: 1em;
 	vertical-align: middle;
 	width: auto;
+ 
 }
 
 .custom-logo-link img {
 	display: inline-block;
-	max-height: 80px;
+	max-height: 60px;
 	width: auto;
+	margin-left: 1.5em;
+	padding-top: 0.6em;
 }
 
 body.home.title-tagline-hidden.has-header-image .custom-logo-link img,
@@ -3170,6 +3210,9 @@ object {
 	body.customize-partial-edit-shortcuts-shown .site-header .site-title {
 		padding-left: 0;
 	}
+ 
+
+
 }
 
 @media screen and (min-width: 30em) {
@@ -3236,6 +3279,8 @@ object {
 
 	/* Site Branding */
 
+
+	
 	.site-branding {
 		padding: 3em 0;
 	}
@@ -3346,6 +3391,11 @@ object {
 
 	/* Site Branding */
 
+	header#masthead.site-header {
+		text-align: left;
+		background: white;
+	}
+	
 	.site-branding {
 		margin-bottom: 0;
 	}
@@ -3394,10 +3444,12 @@ object {
 		top: 0;
 	}
 
+	
+
 	.custom-logo-link {
 		padding-right: 2em;
 	}
-
+	
 	.custom-logo-link img,
 	body.home.title-tagline-hidden.has-header-image .custom-logo-link img,
 	body.home.title-tagline-hidden.has-header-video .custom-logo-link img {
@@ -3449,8 +3501,15 @@ object {
 		right: 0;
 		top: 0;
 		width: 100%;
-		z-index: 7;
+		z-index: 401;
 	}
+
+div.logonav_wrapper {
+	max-width: 1000px;
+	margin: auto;
+}
+	
+	
 
 	.admin-bar .site-navigation-fixed.navigation-top {
 		top: 32px;
@@ -3494,8 +3553,14 @@ object {
 	}
 
 	.main-navigation a {
-		padding: 1em 1.25em;
+		padding: 5px 10px;;
+
+		
 	}
+
+li.menu-item {
+			margin: 1em 0.5em 0;
+}
 
 	.main-navigation ul ul {
 		background: #fff;
@@ -4048,7 +4113,7 @@ object {
 
 	/* Navigation */
 	.navigation-top .wrap {
-		padding: 0.75em 2em;
+		padding: 0.75em 2em 0;
 	}
 
 	.navigation-top nav {
@@ -4203,7 +4268,7 @@ object {
 	/* Site Branding */
 
 	.site-header {
-		background: transparent;
+	
 		padding: 0;
 	}
 
@@ -4295,10 +4360,13 @@ div.turinfo {
 	padding: 4px 5px 0;
 	
 }
-
+.forside-turinfo {
+	margin-bottom: 0em;
+}
 .turinfo div{
 	margin-right: 1em;
 }
+
 
 
 span.turlabel {
@@ -4306,14 +4374,18 @@ span.turlabel {
 	color:  #333;;
 }
 
+#forsideturer .forside-turinfo span {
+	margin-right: 0.4em;
+}
+
 span.turinfo {
-	color: #c8662e;
+	color: black;;
 } 
 .turinfo:before {
 	font-family:'FontAwesome';
 	font-size: 1.4em;
-	padding: 3px 3px 0 5px;;
-	color: #c8662e;
+	padding: 0 3px 10px 5px;;
+	color: #ab3231;
 }
 .Sykkeltur.turinfo:before {
 	content: "\f206";
@@ -4388,19 +4460,27 @@ div.kollektivtransport h3,
 div.adkomst h3 {
 	font-size: 107%;
 	font-weight: 600;
-	color: #c8652e;
+	color: ##ab3231
 }
 
 #forsideturer {
 	display: flex;
 	justify-content:  center;
-	background: #333;
+	background: #d1d984 url(http://res.freestockphotos.biz/pictures/8/8453-a-blue-sky-with-white-clouds-pv.jpg);
+	background-size:cover;
 	padding-top: 1em;
 	padding-bottom: 1em;
 }
 
+#forsideturer .forsidetur {
+	opacity:0.95;
+}
+#forsideturer .forsidetur:hover {
+	opacity:1;
+}
+
 #forsideturer h3 {
-	padding-top: 0;
+	padding-top: 1em;
 }
 .forsidetur {
  	width: 330px;
@@ -4444,6 +4524,7 @@ body div.turinfo  {
   
   .forsidetur {
 	width: auto;
+	text-align: center;
 }
  
 }

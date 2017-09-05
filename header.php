@@ -27,15 +27,17 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'medialog_turspor' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-	LOGO
+
+  <div class="logonav_wrapper">
 		<?php if ( has_nav_menu( 'top' ) ) : ?>
 			<div class="navigation-top">
+
 				<div class="wrap">
 					<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
 				</div><!-- .wrap -->
 			</div><!-- .navigation-top -->
 		<?php endif; ?>
-
+	</div>
 
 	</header><!-- #masthead -->
 
