@@ -1,10 +1,6 @@
 /* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
 
-/* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
 
-/* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
-
-/* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
 
 
 /*--------------------------------------------------------------
@@ -101,6 +97,7 @@ a {
 a:active,
 a:hover {
 	outline-width: 0;
+	color: #9e3038;
 }
 
 abbr[title] {
@@ -115,7 +112,7 @@ strong {
 
 b,
 strong {
-	font-weight: 700;
+	font-weight: 600;
 }
 
 code,
@@ -1164,7 +1161,7 @@ a:focus {
 
 a:hover,
 a:active {
-	color: #000;
+	color: #9e3038;
 	outline: 0;
 }
 
@@ -1550,7 +1547,9 @@ body {
 #page {
 	position: relative;
 	word-wrap: break-word;
+
 }
+
 
 .wrap {
 	margin-left: auto;
@@ -1728,11 +1727,12 @@ body:not(.title-tagline-hidden) .site-branding-text {
 	transform: translateX(-50%) translateY(-50%);
 }
 
- 
-iframe {
+body .medialog_turspor-front-page iframe {
     height: 56.2vw;
     padding: 0;
 }
+
+ 
 
 .wp-custom-header {
 	background: black !important;
@@ -1943,6 +1943,7 @@ body.page:not(.medialog_turspor-front-page) .entry-title {
 	font-weight: 800;
 	letter-spacing: 0.14em;
 	text-transform: uppercase;
+	margin-top: 3em;
 }
 
 .entry-header .entry-title {
@@ -1954,6 +1955,11 @@ body.page:not(.medialog_turspor-front-page) .entry-title {
 	text-decoration: none;
 	margin-left: -2px;
 }
+
+.entry-title a:hover {
+	color: #9e3038; 
+}
+
 
 .entry-title:not(:first-child) {
 	padding-top: 0;
@@ -2130,6 +2136,8 @@ body:not(.medialog_turspor-front-page) .entry-header {
 .single-featured-image-header {
 	background-color: #fafafa;
 	border-bottom: 1px solid #eee;
+	 padding-top: 80px;
+
 }
 
 .single-featured-image-header img {
@@ -3974,12 +3982,18 @@ li.menu-item {
 
 	/* Pages */
 
+	header.page-header h1.page-title,
+	div.wrap .entry-header h2.entry-title  {
+		color: #9e3038;
+	}
+
 	.page.page-one-column .entry-header,
 	.medialog_turspor-front-page.page-one-column .entry-header,
 	.archive.page-one-column:not(.has-sidebar) .page-header {
-		margin-bottom: 4em;
+		margin-bottom: 3em;
 	}
 
+ 
 	.page:not(.home) #content {
 		padding-bottom: 3.25em;
 	}
@@ -4466,8 +4480,9 @@ div.adkomst h3 {
 #forsideturer {
 	display: flex;
 	justify-content:  center;
-	background: #d1d984 url(http://res.freestockphotos.biz/pictures/8/8453-a-blue-sky-with-white-clouds-pv.jpg);
+	background: #c9dfea url(assets/images/blue_mount.jpg);
 	background-size:cover;
+	background-position: bottom;
 	padding-top: 1em;
 	padding-bottom: 1em;
 }
@@ -4510,11 +4525,16 @@ a.button {
 @media screen and (max-width: 40em) {
 
 body div.turinfo  {
-		flex-direction: column;
+		display: block;
 		font-size: 80%;
 		line-height: 160%;
 	}
-	
+
+
+	body div.turinfo > div {
+		display: inline;
+		line-height: 2.5em
+	}	
 }
 
 @media screen and (max-width: 35em) {
