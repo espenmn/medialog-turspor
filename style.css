@@ -32,7 +32,8 @@
 18.0 SVGs Fallbacks
 19.0 Media Queries
 20.0 Print
-20.0 Turspor
+21.0 Turspor
+22.0 Map-fonts
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -96,7 +97,7 @@ a {
 a:active,
 a:hover {
 	outline-width: 0;
-	color: #9e3038;
+	color: #ab3231;
 }
 
 abbr[title] {
@@ -1160,7 +1161,7 @@ a:focus {
 
 a:hover,
 a:active {
-	color: #9e3038;
+	color: #ab3231;
 	outline: 0;
 }
 
@@ -1351,7 +1352,7 @@ nav#site-navigation.main-navigation.toggled-on a {
 nav#site-navigation.main-navigation.toggled-on .current-menu-item > a,
 nav#site-navigation.main-navigation.toggled-on .current_page_item > a {
 background: white;
-color: #9e3038;
+color: #ab3231;
 }
 
 .main-navigation {
@@ -1974,7 +1975,7 @@ body.page:not(.medialog_turspor-front-page) .entry-title {
 }
 
 .entry-title a:hover {
-	color: #9e3038; 
+	color: #ab3231; 
 }
 
 
@@ -4009,7 +4010,7 @@ li.menu-item {
 
 	header.page-header h1.page-title,
 	div.wrap .entry-header h2.entry-title  {
-		color: #9e3038;
+		color: #ab3231;
 	}
 
 	.page.page-one-column .entry-header,
@@ -4201,6 +4202,11 @@ li.menu-item {
 
 @media screen and ( min-width: 79em ) {
 
+	#forsideturer {
+		padding-left: 7em;
+		padding-right: 7em;
+	}
+
 	.has-sidebar .entry-content blockquote.alignleft {
 		margin-left: -20%;
 	}
@@ -4211,6 +4217,8 @@ li.menu-item {
 	.medialog_turspor-front-page .entry-content blockquote.alignright {
 		margin-right: -20%;
 	}
+	
+	
 }
 
 @media screen and ( max-width: 48.875em ) and ( min-width: 48em ) {
@@ -4237,7 +4245,8 @@ li.menu-item {
 
 	body div.turinfo > div {
 		display: inline;
-		line-height: 2.5em
+		line-height: 2em;
+	
 	}	
 }
 
@@ -4435,6 +4444,32 @@ li.menu-item {
 
 /* Turspor */
 
+p.featured-caption {
+	color: #666;
+	text-align: center;
+	font-size: 90%;
+	font-style: italic;
+	margin-top: 1em;
+	max-width: 800px;
+	margin: 0.4em auto;
+}
+
+
+.wpgpxmaps {
+	border:  1px solid silver;
+	padding: 0.2em;
+	margin: 1em 0;	
+}
+
+ 
+.wpgpxmaps_summary {
+	display: flex;
+	flex-wrap: wrap;
+}
+.wpgpxmaps_summary span {
+	margin-right: 0.25em;
+}
+ 
 
 .forside-turinfo,
 div.turinfo {
@@ -4450,9 +4485,8 @@ div.turinfo {
 	margin-bottom: 0em;
 }
 .turinfo div{
-	margin-right: 1em;
+	margin: 0  1em 0 0;
 }
-
 
 
 span.turlabel {
@@ -4476,15 +4510,12 @@ span.turinfo {
 }
 
 .yrboks {
-	padding: 0;
-	line-height: 20px;
-	margin-top: 4px;
-	margin-bottom: 0;
-	background: none;
+	padding-top: 4px;
 }
 
 .yrboks a,
 .yrboks img{
+	position: relative;
 	width: 22px;
 	height: 22px;
 	margin: 0;
@@ -4492,36 +4523,73 @@ span.turinfo {
 	background: none;
 }
 
-.Sykkeltur.turinfo:before {
-	content: "\f206";
+
+
+.turicon{
+	font-family: 'map-icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 0.9em;
+	padding: 0;
+	
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #ab3231;
 }
 
-.Fottur.turinfo:before {
-	content: "\f206";
+
+icon.turicon {
+	font-size: 1.7em;
+	position: relative;
+	top:  3px;;
 }
-
-.Skitur.turinfo:before {
-	content: "\f206";
-}
-
-
-.Padletur.turinfo:before {
-	content: "\f21c";
-}
-
-.Klatretur.turinfo:before {
-	content: "\f206";
-}
-
-.Bretur.turinfo:before {
-	content: "\f206";
-}
-
  
-.varighet.turinfo:before {
-	content: "\f017 ";
+.Fottur .turicon:before  {
+	content: "\e89c";
+
 }
 
+.Padletur .turicon:before {
+	content: "\e81a";
+}
+
+.Sykkeltur .turicon:before {
+	content: "\e810";
+}
+
+.Skiltur .turicon:before {
+	content: "\e82b";
+}
+
+.Klatretur .turicon:before {
+	content: "\e825";
+}
+
+.Bretur .turicon:before {
+	content: "\e825";
+}
+
+
+.adkomst .turicon:before,
+.kollektivtransport .turicon:before {
+	content: "\e89e";
+	position: relative;
+	top:  3px;;
+}
+
+
+icon.fa.fa-link {
+	color: #ab3130;
+	font-size: 1.4em;
+	margin-right: 7px;
+}
+ 
+ 
+ 
 div.gradwrapper {
 	margin-left:auto;
 	margin-right: 0;
@@ -4543,7 +4611,7 @@ div.gradwrapper {
 }
 	
 .grad.Krevende {
-	background: #c9222a;
+	background: #ab3231;
 	color: white;
 }
 
@@ -4552,12 +4620,7 @@ div.gradwrapper {
 	color: white;
 }
 
-.barnevennlig-Ja .turinfo:before {
-	font-family:'FontAwesome';
-	font-size: 1.4em;
-	padding: 3px 3px 0 5px;;
-	content: "\f1ae";
-}
+
      
 div.barnevennlig-No,
 div.barnevennlig-Nei  {
@@ -4569,6 +4632,7 @@ div.kollektivtransport,
 div.adkomst {
  background: whitesmoke;
  padding: 2em 2em 0.5em;	
+ margin-top:  1.2em;
  margin-bottom:  1.2em;
 }
 
@@ -4578,10 +4642,21 @@ div.adkomst h3 {
 	font-weight: 600;
 	color: ##ab3231
 }
+
+ 
+.turlabel i.fa.fa-child, 
+.turlabel i.fa.fa-clock-o,
 .turlabel i.fa.fa-calendar-check-o {
 	font-size: 1.4em;
 	color: #ab3231;
-	padding-top: 4px;
+	position: relative;
+	top:  2px;
+
+}
+
+.turlabel i.fa.fa-child,.turlabel i.fa.fa-clock-o {
+	font-size: 1.7em;
+	top:  3px;;
 }
 
 
@@ -4620,18 +4695,54 @@ div.adkomst h3 {
  	margin: 0 auto 10px;
 }
 
+/*
+#forsideturer .turicon,
 #forsideturer .varighet.turinfo,
 #forsideturer .turinfo:before {
-	color: #999;
+	color: #777;
 }
+
+*/
+
 
 a.button {
 	position: relative; 
 	bottom: 0;
-	color: #c9222a;
+	color: #ab3231;
 	font-size: 90%;
 	margin: auto;
 	-webkit-box-shadow: none ;
 	box-shadow: i0;
 }
+
+
+
+/* 22.0 Map fonts */
+
+@font-face {
+	font-family: 'map-icons';
+	src:url('assets/fonts/map-icons.eot');
+	src:url('assets/fonts/map-icons.eot#iefix') format('embedded-opentype'),
+		url('assets/fonts/map-icons.ttf') format('truetype'),
+		url('assets/fonts/map-icons.woff') format('woff'),
+		url('assets/fonts/map-icons.svg#map-icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.map-icon {
+	font-family: 'map-icons';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
 

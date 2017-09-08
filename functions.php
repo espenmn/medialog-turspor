@@ -52,7 +52,7 @@ function medialog_turspor_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	add_image_size( 'medialog_turspor-featured-image', 2000, 1200, true );
-	
+
 	add_image_size( 'medialog_turspor-medium-image', 800, 500, true );
 
 	add_image_size( 'medialog_turspor-thumbnail-avatar', 100, 100, true );
@@ -77,20 +77,7 @@ function medialog_turspor_setup() {
 		'caption',
 	) );
 
-	/*
-	 * Enable support for Post Formats.
-	 *
-	 * See: https://codex.wordpress.org/Post_Formats
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-		'gallery',
-		'audio',
-	) );
+
 
 	// Add theme support for Custom Logo.
 	add_theme_support( 'custom-logo', array(
@@ -195,7 +182,6 @@ function medialog_turspor_setup() {
 			'social' => array(
 				'name' => __( 'Social Links Menu', 'medialog_turspor' ),
 				'items' => array(
-					'link_yelp',
 					'link_facebook',
 					'link_twitter',
 					'link_instagram',
