@@ -581,10 +581,18 @@ function medialog_weather_shortcode($atts=[]) {
 	
 	$fcast = simplexml_load_file('https://api.met.no/weatherapi/locationforecastlts/1.3/?lat=60.10;lon=9.58');
 	$product = $fcast->product;
+	$i = 0;
 	foreach ( $product->time as $value ) {
 	    $from = $value['from'];
+	    $location = $value->location;
 	    $temp = $value->location->temperature['value'];
-	    $html = $html . $from . '<br/>' .$temp . '<br/>';
+	    $windSpeed = $location->windSpeed['name'];
+	    if ( $temp ) {
+	    	$i++;
+	        $html = $html . 'Kl. ' . $from . '<br/>Temp. ' . $temp . '°C<br/>' . $windSpeed
+	        . ' ' . $location->windSpeed['mps'] . 'mps.';
+	    }
+	    if($i==10) break;
 	}
 
 	return $html . '</div>';
