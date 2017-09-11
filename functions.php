@@ -558,54 +558,35 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 
 
-// Function shortcode to weather forcase.
-function vaermelding_shortcode($atts=[]) {
-		$yr_url = '';
-	  $lat = $atts['lat'];
-		$lon = $atts['lon'];
-
-		$the_url = 'http://api.met.no/weatherapi/textlocation/1.0/?language=nb;latitude=' . $lat . ';longitude=' . $lon;
-		$the_loc = simplexml_load_file($the_url);
-
-		return do_shortcode( ' [yr url="http://www.yr.no/place/Norway/Oslo/Oslo/Oslo"] ');
-}
-add_shortcode('medialog_vaer', 'vaermelding_shortcode');
-
-
-
 // Function shortcode to get nearest city.
-function nearest_city_shortcode($atts=[]) {
+function medialog_weather_shortcode($atts=[]) {
     $yr_url = '';
     $city = '';
     $gpx_url = $atts['gpx_url'];
 	$gpx = simplexml_load_file($gpx_url);
 	$lat = $gpx->trk->trkseg->trkpt[0]['lat'];
 	$lon = $gpx->trk->trkseg->trkpt[0]['lon'];
-	$the_url = 'http://maps.googleapis.com/maps/api/geocode/xml?latlng=' . $lat . ',' . $lon . '&sensor=true';
-	$the_loc = simplexml_load_file($the_url);
+	$fcast = simplexml_load_file('http://api.met.no/weatherapi/textlocation/1.0/?language=nb;latitude=' . $lat . ';longitude=' . $lon);
+	$product = $fcast->time;
+	
+	$html = '<img src="../../wp-content/themes/medialog-turspor/assets/images/yr-logo.png"
+                    alt="yrlogo" title="yrlogo" id="yrboks" width="25px" relheight="25px"><div class="hidden">';
+	
+	foreach ( $product as $value ) {
+	     $vaer = $value->location->forecast;
+	     $klass = $value->location['name'];
+	     $html = $html . '<div><h3>' . $klass .'</h3></div><div class="forecast">' . $vaer . '</div>';
+	}
+	
+	
+	$fcast = simplexml_load_file('https://api.met.no/weatherapi/locationforecastlts/1.3/?lat=60.10;lon=9.58');
+	$product = $fcast->product;
+	foreach ( $product->time as $value ) {
+	    $from = $value['from'];
+	    $temp = $value->location->temperature['value'];
+	    $html = $html . $from . '<br/>' .$temp . '<br/>';
+	}
 
-	if ($the_loc->status == 'OK') {
-		// $country = $the_loc->result[0]->address_component[4]->long_name;  //
-        $place = $the_loc->result[0]->address_component[0];
-
-        foreach ( $place as $value )  {
-            $city = $city . $value;
-            if ( $value['type'] == 'xadministrative_area_level_1' ) {
-                $city = $city . $value;
-            }
-        }
-
-        $city  = $the_loc->result[0]->address_component[1]->long_name;
-        $fylke  = $the_loc->result[0]->address_component[3]->long_name;
-        $kom  = $the_loc->result[0]->address_component[2]->long_name;
-        $kom2 = str_replace(' kommune', '', $kom);
-        $kommune = str_replace(' ', '_', $kom2);
-
-        $yr_url = $kommune . '<a href="https://www.yr.no/sted/Norge/' . $fylke . '/' . $kommune . '/' . $city . '" target="_blank" title="Værmelding yr.no" alt="Værmelding for ' . $city .'">
-                                <img src="../../wp-content/themes/medialog-turspor/assets/images/yr-logo.png"
-                                alt="yrlogo" title="yrlogo" width="25px" height="25px"></a>';
-    }
-
-	return $yr_url;
+	return $html . '</div>';
 }
-add_shortcode('medialog_city', 'nearest_city_shortcode');
+add_shortcode('medialog_weather', 'medialog_weather_shortcode');
