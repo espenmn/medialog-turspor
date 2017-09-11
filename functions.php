@@ -529,6 +529,7 @@ function medialog_turspor_front_page_template( $template ) {
 }
 add_filter( 'frontpage_template',  'medialog_turspor_front_page_template' );
 
+
 /**
  * Implement the Custom Header feature.
  */
@@ -553,3 +554,55 @@ require get_parent_theme_file_path( '/inc/customizer.php' );
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
+
+
+
+
+// Function shortcode to weather forcase.
+function vaermelding_shortcode($atts=[]) {
+		$yr_url = '';
+	  $lat = $atts['lat'];
+		$lon = $atts['lon'];
+
+		$the_url = 'http://api.met.no/weatherapi/textlocation/1.0/?language=nb;latitude=' . $lat . ';longitude=' . $lon;
+		$the_loc = simplexml_load_file($the_url);
+
+		return do_shortcode( ' [yr url="http://www.yr.no/place/Norway/Oslo/Oslo/Oslo"] ');
+}
+add_shortcode('medialog_vaer', 'vaermelding_shortcode');
+
+
+
+// Function shortcode to get nearest city.
+function nearest_city_shortcode($atts=[], $tag = '') {
+			$gpx_url = $atts['gpx_url'];
+			$gpx = simplexml_load_file($gpx_url);
+			$lat = $gpx->trk->trkseg->trkpt[0]['lat'];
+			$lon = $gpx->trk->trkseg->trkpt[0]['lon'];
+			$the_url = 'http://maps.googleapis.com/maps/api/geocode/xml?latlng=' . $lat . ',' . $lon . '&sensor=true';
+		  $the_loc = simplexml_load_file($the_url);
+
+			if ($the_loc->status == 'OK') {
+				// $country = $the_loc->result[0]->address_component[4]->long_name;  //
+				$place = $the_loc->result[0]->address_components[0];
+
+				foreach ( $place as $key => $value )  {
+					if ( $place['types'] = [ "political", "sublocality", "sublocality_level_1" ]) {
+						$city = $value;
+					}
+				}
+
+				$city  = $the_loc->result[4]->address_component[1]->short_name;
+				$fylke  = $the_loc->result[4]->address_component[3]->short_name;
+				$kom  = $the_loc->result[4]->address_component[2]->short_name;
+				$kom2 = str_replace(' kommune', '', $kom);
+				$kommune = str_replace(' ', '_', $kom2);
+
+			  $yr_url = $kommune . '<a href="https://www.yr.no/sted/Norge/' . $fylke . '/' . $kommune . '/' . $city . '" target="_blank" title="Værmelding yr.no" alt="Værmelding for ' . $city .'">
+										<img src="../../wp-content/themes/medialog-turspor/assets/images/yr-logo.png"
+										alt="yrlogo" title="yrlogo" width="25px" height="25px"></a>';
+			}
+
+		return $yr_url;
+}
+add_shortcode('medialog_city', 'nearest_city_shortcode');
