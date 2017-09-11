@@ -570,13 +570,15 @@ function medialog_weather_shortcode($atts=[]) {
 	$product = $fcast->time;
 	
 	$html = '<img src="../../wp-content/themes/medialog-turspor/assets/images/yr-logo.png"
-                    alt="yrlogo" title="yrlogo" id="yrboks" width="25px" relheight="25px"><div class="hidden">';
+                    alt="yrlogo" title="yrlogo" id="yrboks" width="30px" height="30px"><div id="weather_data" class="hidden">';
 	
+	/*
 	foreach ( $product as $value ) {
 	     $vaer = $value->location->forecast;
 	     $klass = $value->location['name'];
 	     $html = $html . '<div><h3>' . $klass .'</h3></div><div class="forecast">' . $vaer . '</div>';
 	}
+	*/
 	
 	
 	$fcast = simplexml_load_file('https://api.met.no/weatherapi/locationforecastlts/1.3/?lat=60.10;lon=9.58');

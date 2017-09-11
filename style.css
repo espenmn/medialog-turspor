@@ -1,5 +1,7 @@
 /* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
 
+/* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
+
  
 
 /*--------------------------------------------------------------
@@ -283,6 +285,7 @@ template {
 	display: none;
 }
 
+.hidden,
 [hidden] {
 	display: none;
 }
@@ -1961,11 +1964,19 @@ body.page:not(.medialog_turspor-front-page) .entry-title {
 	margin-top: 3em;
 }
 
-
+.type-tur .entry-header .entry-title {
+	max-width: 87%;
+	float: left;
+}
 
 .entry-header .entry-title {
-	
 	margin-bottom: 0.25em;
+}
+ 
+
+img#yrboks {
+	float: right;
+	margin-top:  -8px;;
 }
 
 .entry-title a {
@@ -4236,18 +4247,22 @@ li.menu-item {
 	
 
 
-	body div.turinfo  {
+	div.turinfo  {
 		display: block;
 		font-size: 80%;
 		line-height: 160%;
 	}
 
-
-	body div.turinfo > div {
+	div.turinfo > div {
 		display: inline;
 		line-height: 2em;
 	
 	}	
+	
+	div.turinfo div.barnevennlig-No,
+	div.turinfo div.barnevennlig-Nei  {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 35em) {
@@ -4441,6 +4456,11 @@ li.menu-item {
 
 /* Turspor */
 
+div.barnevennlig-No,
+div.barnevennlig-Nei  {
+	display: none;
+}
+
 p.featured-caption {
 	color: #666;
 	text-align: center;
@@ -4495,6 +4515,9 @@ span.turlabel {
 	margin-right: 0.4em;
 }
 
+div.turinfo {
+	clear: both;
+}
 span.turinfo {
 	color: black;;
 } 
@@ -4504,6 +4527,7 @@ span.turinfo {
 	font-size: 1.4em;
 	padding: 0 3px 10px 5px;;
 	color: #ab3231;
+	
 }
 
 .yrboks {
