@@ -558,7 +558,7 @@ require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
 
 
-// Function shortcode to get nearest city.
+// Function shortcode to get the wather.
 function medialog_weather_shortcode($atts=[]) {
     $yr_url = '';
     $city = '';
@@ -570,33 +570,64 @@ function medialog_weather_shortcode($atts=[]) {
 	$product = $fcast->time;
 	
 	$html = '<img src="../../wp-content/themes/medialog-turspor/assets/images/yr-logo.png"
-                    alt="yrlogo" title="yrlogo" id="yrboks" width="30px" height="30px"><div id="weather_data" class="hidden">';
+                  alt="yrlogo" title="yrlogo" id="yrboks" width="30px" height="30px"><div id="weather_data" class="hidden">';
 	
-	/*
 	foreach ( $product as $value ) {
 	     $vaer = $value->location->forecast;
 	     $klass = $value->location['name'];
 	     $html = $html . '<div><h3>' . $klass .'</h3></div><div class="forecast">' . $vaer . '</div>';
 	}
-	*/
 	
 	
-	$fcast = simplexml_load_file('https://api.met.no/weatherapi/locationforecastlts/1.3/?lat=60.10;lon=9.58');
+	$fcast = simplexml_load_file('https://api.met.no/weatherapi/locationforecastlts/1.3/?lat=' . $lat . ';lon=' . $lon);
 	$product = $fcast->product;
 	$i = 0;
+	$clock  = date("H", time() + 10800);
+	$today  = date("j F Y \k\l H\.", time() + 10800);  
+	$fdate  = date("Y-m-d\TH:00:00\Z", time() + 10800);  
+	
 	foreach ( $product->time as $value ) {
-	    $from = $value['from'];
-	    $location = $value->location;
-	    $temp = $value->location->temperature['value'];
-	    $windSpeed = $location->windSpeed['name'];
-	    if ( $temp ) {
+	    if ( $value['from'] == $fdate ) {
+	        $location   = $value->location;
+	        isset($nedb) OR $nedb = $location->precipitation['value'];
+	        isset($temp) OR $temp = $location->temperature['value'];
+	        isset($windSpeed) OR $windSpeed = $location->windSpeed['name'];
+	        isset($mps) OR $mps = $location->windSpeed['mps'];
+	        isset($symbol) OR $symbol = $location->symbol['number']; 
+	        isset($imgclass) OR $imgclass = $location->symbol['id']; 
 	    	$i++;
-	        $html = $html . 'Kl. ' . $from . '<br/>Temp. ' . $temp . '°C<br/>' . $windSpeed
-	        . ' ' . $location->windSpeed['mps'] . 'mps.';
-	    }
-	    if($i==10) break;
+	    	if($i==5) break;
+	        }
+	    
 	}
+    
+    $html = $html . 
+            '<h6>' . $today . '</h6><div class="forecast">
+            <div><p class="heading">Tid</p><p>' . $clock .'</p></div>
+            <div><p class="heading">Varsel</p>
+                <img class="' . $imgclass . '" src="https://external.api.met.no/weatherapi/weathericon/1.1/?symbol=' 
+                    . $symbol. '&content_type=image/png">
+                <p class="yrlink"><a href="https://www.yr.no/kart/#lat=' . $lat . '&lon=' . $lon . '&zoom=8" target="_blank" title="Værmelding yr.no" alt="Værmelding yr.no" class="button">
+                    Nedbørskart
+                </a></p>
+            </div>
+            <div><p class="heading">Temp.</p><p>' . $temp .'°</p></div>
+            <div><p class="heading">Nedbør</p><p>≈ ' . $nedb .' mm</p></div>
+            <div><p class="heading">Vind</p><p>' . $windSpeed .', ' . $mps .'m/s </p></div>
+            </div>';
 
 	return $html . '</div>';
 }
 add_shortcode('medialog_weather', 'medialog_weather_shortcode');
+
+
+
+// Function shortcode for link on googlemap.
+function medialog_googlemap_shortcode($atts=[]) {
+    $gpx_url = $atts['gpx_url'];
+	$gpx = simplexml_load_file($gpx_url);
+	$lat = $gpx->trk->trkseg->trkpt[0]['lat'];
+	$lon = $gpx->trk->trkseg->trkpt[0]['lon'];
+	return '<a href="https://www.google.no/maps/dir/' . $lat . ',' . $lon . '" target="_blank"><icon class="fa fa-map-marker"></icon> Finn via google-map</a>';
+}
+add_shortcode('medialog_googlemap', 'medialog_googlemap_shortcode');
