@@ -14,8 +14,10 @@
 
 get_header(); ?>
 
+
 <div id="primary" class="content-area">
-	<iframe width="100%" height="900vw" src="https://www.youtube.com/embed/RAC1M0hBBsE?autoplay=1&loop=1&modestbranding=1&autohide=1&showinfo=0&controls=0" frameborder="0" allowfullscreen></iframe>
+	<iframe width="100%" height="900vw" src="https://www.youtube.com/embed/2LQwsYu4iFU?autoplay=1&loop=1&modestbranding=1&autohide=1&showinfo=0&controls=0&rel=0&playlist=2LQwsYu4iFU&color=white" 
+	frameborder="0" allowfullscreen></iframe>
 	<main id="main" class="site-main" role="main">
 
 		<?php // Show the selected frontpage content.

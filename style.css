@@ -1753,6 +1753,7 @@ body:not(.title-tagline-hidden) .site-branding-text {
     height: 56.2vw;
     padding: 0;
     width:  100%;
+    padding: 0;
 }
 
  
@@ -3392,10 +3393,11 @@ object {
 
 @media screen and (min-width: 48em) {
 	
+	.medialog_turspor-front-page iframe,
 	.single-featured-image-header  {
-		padding-top: 80px;
+		margin-top: 80px;
 	}
-
+ 
 	/* Typography */
 
 	body,
@@ -4250,6 +4252,9 @@ li.menu-item {
 @media screen and (max-width: 40em) {
 	
 
+	.medialog_turspor-front-page iframe {
+    	padding: 0 ;
+    }
 
 	div.turinfo  {
 		display: block;
@@ -4459,6 +4464,7 @@ li.menu-item {
 
 
 /* 21.0 Turspor */
+
 
 /* dont show search widget on error pages twicew*/
 .error404 .widget_search {
