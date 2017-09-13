@@ -9,7 +9,7 @@ Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-rea
 
 == Description ==
 
-Medialog Turspor brings your site to life with header video and immersive featured images. With a focus on business sites, it features multiple sections on the front page as well as widgets, navigation and social menus, a logo, and more. Personalize its asymmetrical grid with a custom color scheme and showcase your multimedia content with post formats. Our default theme for 2017 works great in many languages, for any abilities, and on any device.
+Medialog Turspor theme for turspor website
 
  
 
@@ -51,28 +51,3 @@ Font Awesome icons, Copyright Dave Gandy
 License: SIL Open Font License, version 1.1.
 Source: http://fontawesome.io/
 
-Bundled header image, Copyright Alvin Engler
-License: CC0 1.0 Universal (CC0 1.0)
-Source: https://unsplash.com/@englr?photo=bIhpiQA009k
-
-== Changelog ==
-
-= 1.3 =
-* Released: June 8, 2017
-
-https://codex.wordpress.org/Medialog_Turspor_Theme_Changelog#Version_1.3
-
-= 1.2 =
-* Released: April 18, 2017
-
-https://codex.wordpress.org/Medialog_Turspor_Theme_Changelog#Version_1.2
-
-= 1.1 =
-* Released: January 6, 2017
-
-https://codex.wordpress.org/Medialog_Turspor_Theme_Changelog#Version_1.1
-
-= 1.0 =
-* Released: December 6, 2016
-
-Initial release

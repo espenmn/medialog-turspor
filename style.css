@@ -4,6 +4,8 @@
 
 /* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
 
+/* @override http://10.0.0.246:8888/turspor/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
+
  
 
 /*--------------------------------------------------------------
@@ -1966,7 +1968,7 @@ body.page:not(.medialog_turspor-front-page) .entry-title {
 	margin-top: 3em;
 }
 
-.type-tur .entry-header .entry-title {
+.single-tur .entry-header .entry-title {
 	max-width: 87%;
 	float: left;
 }
@@ -4456,7 +4458,32 @@ li.menu-item {
 }
 
 
-/* Turspor */
+/* 21.0 Turspor */
+
+/* dont show search widget on error pages twicew*/
+.error404 .widget_search {
+	display: none;
+}
+ 
+
+.error404 main,
+.search.search-results main {
+	padding-top: 2.1em;
+}
+
+.search.search-results  a {
+	color: #ab3231;
+}
+
+.search.search-results p.link-more {
+	display: none;
+}
+
+.search.search-results .has-post-thumbnail.hentry {
+	border-bottom: 1px solid silver;
+	padding-bottom: 0em;
+	margin-bottom: 2em;
+}
 
 div.barnevennlig-No,
 div.barnevennlig-Nei  {
