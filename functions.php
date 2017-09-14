@@ -52,8 +52,12 @@ function medialog_turspor_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	add_image_size( 'medialog_turspor-featured-image', 2000, 1200, true );
+	
+	add_image_size( 'medialog_turspor-large-image', 1200, 800, true );
 
 	add_image_size( 'medialog_turspor-medium-image', 800, 500, true );
+	
+	add_image_size( 'medialog_turspor-preview-image', 200, 200, true );
 
 	add_image_size( 'medialog_turspor-thumbnail-avatar', 100, 100, true );
 
