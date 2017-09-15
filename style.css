@@ -4280,15 +4280,6 @@ li.menu-item {
 
 @media screen and (max-width: 35em) {
 
-    #site-navigation   img.custom-logo,
-    #site-navigation button.menu-toggle {
-	    margin-left: 0;
-	    margin-right: 0;
-	    padding-right: 0;
-    }
-
-
-  
   .forsidetur {
 	width: auto;
 	text-align: center;
