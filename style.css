@@ -1,3 +1,5 @@
+/* @override http://www.lokalhistorie.org/wp-content/themes/medialog-turspor/style.css?ver=4.8.1 */
+
 /*
 Theme Name: medialog-turspor
 Theme URI: https://github.com/espenmn/medialog-turspor
@@ -1325,8 +1327,7 @@ nav#site-navigation.main-navigation.toggled-on ul#top-menu.menu {
 
 .navigation-top .wrap {
 	max-width: 1000px;
-	padding: 0.75em 2em 0;
-
+	padding: 0.75em  0 0;
 }
 
 #site-navigation a.custom-logo-link {
@@ -1368,6 +1369,7 @@ color: #ab3231;
 	clear: both;
 	display: block;
 }
+
 
 .main-navigation ul {
 	background: #fff;
@@ -4278,6 +4280,14 @@ li.menu-item {
 
 @media screen and (max-width: 35em) {
 
+    #site-navigation   img.custom-logo,
+    #site-navigation button.menu-toggle {
+	    margin-left: 0;
+	    margin-right: 0;
+	    padding-right: 0;
+    }
+
+
   
   .forsidetur {
 	width: auto;
@@ -4289,6 +4299,8 @@ li.menu-item {
 	  width: 100%;
 	  height:  auto;
    }
+   
+   
  
 }
 
@@ -4472,6 +4484,14 @@ li.menu-item {
 .error404 .widget_search {
 	display: none;
 }
+
+ 
+ 
+
+.logonav_wrapper div.navigation-top  {
+	z-index: 100;
+}
+ 
  
 
 .error404 main,
