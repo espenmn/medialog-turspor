@@ -52,11 +52,11 @@ function medialog_turspor_setup() {
 	add_theme_support( 'post-thumbnails' );
 
 	add_image_size( 'medialog_turspor-featured-image', 2000, 1200, true );
-	
+
 	add_image_size( 'medialog_turspor-large-image', 1200, 800, true );
 
 	add_image_size( 'medialog_turspor-medium-image', 800, 500, true );
-	
+
 	add_image_size( 'medialog_turspor-preview-image', 200, 200, true );
 
 	add_image_size( 'medialog_turspor-thumbnail-avatar', 100, 100, true );
@@ -572,24 +572,24 @@ function medialog_weather_shortcode($atts=[]) {
 	$lon = $gpx->trk->trkseg->trkpt[0]['lon'];
 	$fcast = simplexml_load_file('http://api.met.no/weatherapi/textlocation/1.0/?language=nb;latitude=' . $lat . ';longitude=' . $lon);
 	$product = $fcast->time;
-	
+
 	$html = '<img src="../../wp-content/themes/medialog-turspor/assets/images/yr-logo.png"
                   alt="yrlogo" title="yrlogo" id="yrboks" width="30px" height="30px"><div id="weather_data" class="hidden">';
-	
+
 	foreach ( $product as $value ) {
 	     $vaer = $value->location->forecast;
 	     $klass = $value->location['name'];
 	     $html = $html . '<div><h3>' . $klass .'</h3></div><div class="forecast">' . $vaer . '</div>';
 	}
-	
-	
+
+
 	$fcast = simplexml_load_file('https://api.met.no/weatherapi/locationforecastlts/1.3/?lat=' . $lat . ';lon=' . $lon);
 	$product = $fcast->product;
 	$i = 0;
 	$clock  = date("H", time() + 10800);
-	$today  = date("j F Y \k\l H\.", time() + 10800);  
-	$fdate  = date("Y-m-d\TH:00:00\Z", time() + 10800);  
-	
+	$today  = date("j F Y \k\l H\.", time() + 10800);
+	$fdate  = date("Y-m-d\TH:00:00\Z", time() + 10800);
+
 	foreach ( $product->time as $value ) {
 	    if ( $value['from'] == $fdate ) {
 	        $location   = $value->location;
@@ -597,19 +597,19 @@ function medialog_weather_shortcode($atts=[]) {
 	        isset($temp) OR $temp = $location->temperature['value'];
 	        isset($windSpeed) OR $windSpeed = $location->windSpeed['name'];
 	        isset($mps) OR $mps = $location->windSpeed['mps'];
-	        isset($symbol) OR $symbol = $location->symbol['number']; 
-	        isset($imgclass) OR $imgclass = $location->symbol['id']; 
+	        isset($symbol) OR $symbol = $location->symbol['number'];
+	        isset($imgclass) OR $imgclass = $location->symbol['id'];
 	    	$i++;
 	    	if($i==5) break;
 	        }
-	    
+
 	}
-    
-    $html = $html . 
+
+    $html = $html .
             '<h6>' . $today . '</h6><div class="forecast">
             <div><p class="heading">Tid</p><p>' . $clock .'</p></div>
             <div><p class="heading">Varsel</p>
-                <img class="' . $imgclass . '" src="https://external.api.met.no/weatherapi/weathericon/1.1/?symbol=' 
+                <img class="' . $imgclass . '" src="https://external.api.met.no/weatherapi/weathericon/1.1/?symbol='
                     . $symbol. '&content_type=image/png">
                 <p class="yrlink"><a href="https://www.yr.no/kart/#lat=' . $lat . '&lon=' . $lon . '&zoom=8" target="_blank" title="Værmelding yr.no" alt="Værmelding yr.no" class="button">
                     Nedbørskart
@@ -624,7 +624,26 @@ function medialog_weather_shortcode($atts=[]) {
 }
 add_shortcode('medialog_weather', 'medialog_weather_shortcode');
 
+// Function shortcode to get yr and storm links.
+function medialog_weatherlinks_shortcode($atts=[]) {
+      $gpx_url = $atts['gpx_url'];
+	    $gpx = simplexml_load_file($gpx_url);
+	    $lat = $gpx->trk->trkseg->trkpt[0]['lat'];
+	    $lon = $gpx->trk->trkseg->trkpt[0]['lon'];
 
+	$html = '<div class="yrboks">
+      <a href="https://www.yr.no/kart/#lat='  . $lat . '&lon='  . $lon . '&zoom=8" target="_blank" title="Værmelding yr.no" alt="Værmelding yr.no">
+         <img src="../wp-content/themes/medialog-turspor/assets/images/yr-logo.png" alt="yr.no" title="Værmelding yr.no" width="25px" height="25px"></a>
+    </div>
+	  <div class="stormboks">
+      <a href="https://www.storm.no/stedssok/?lat=='  . $lat . '&lng=='  . $lon . '&zoom=0" target="_blank" title="Værmelding storm.no" alt="Værmelding storm.no">
+         <img src="../wp-content/uploads/2017/10/storm_icon_25.png" alt="storm.no" title="Værmelding storm.no" height="25px">
+      </a>
+    </div>';
+
+	return $html;
+}
+add_shortcode('medialog_weatherlinks', 'medialog_weatherlinks_shortcode');
 
 // Function shortcode for link on googlemap.
 function medialog_googlemap_shortcode($atts=[]) {
