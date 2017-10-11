@@ -636,7 +636,7 @@ function medialog_weatherlinks_shortcode($atts=[]) {
          <img src="../wp-content/themes/medialog-turspor/assets/images/yr-logo.png" alt="yr.no" title="Værmelding yr.no" width="25px" height="25px"></a>
     </div>
 	  <div class="stormboks">
-      <a href="https://www.storm.no/stedssok/?lat=='  . $lat . '&lng=='  . $lon . '&zoom=0" target="_blank" title="Værmelding storm.no" alt="Værmelding storm.no">
+      <a href="https://www.storm.no/stedssok/?lat='  . $lat . '&lng='  . $lon . '&zoom=0" target="_blank" title="Værmelding storm.no" alt="Værmelding storm.no">
          <img src="../wp-content/uploads/2017/10/storm_icon_25.png" alt="storm.no" title="Værmelding storm.no" height="25px">
       </a>
     </div>';
