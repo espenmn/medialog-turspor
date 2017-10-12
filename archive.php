@@ -42,8 +42,8 @@ get_header(); ?>
 			endwhile;
 
 			the_posts_pagination( array(
-				'prev_text' => medialog_turspor_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'medialog_turspor' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'medialog_turspor' ) . '</span>' . medialog_turspor_get_svg( array( 'icon' => 'arrow-right' ) ),
+				'prev_text' => medialog_turspor_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Forige', 'medialog_turspor' ) . '</span>',
+				'next_text' => '<span class="screen-reader-text">' . __( 'Neste', 'medialog_turspor' ) . '</span>' . medialog_turspor_get_svg( array( 'icon' => 'arrow-right' ) ),
 				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'medialog_turspor' ) . ' </span>',
 			) );
 
